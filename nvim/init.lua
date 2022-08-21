@@ -1,10 +1,12 @@
 require('user.plugins')
 require('user.nvimtree')
-require("nvim-autopairs").setup {}
+require('user.lualine')
 require('user.telescope')
 require('user.keymaps')
 require('user.options')
 require('user.cmp')
+require('user.lsp.config')
+
 local api = vim.api
 local opts = { noremap=true, silent=true }
 
@@ -65,41 +67,11 @@ vim.opt.completeopt={"menu","menuone","noselect"}
 --  cmp.setup.filetype('gitcommit', {
 --    sources = cmp.config.sources({
 --      { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
---    }, {
+
 --      { name = 'buffer' },
 --    })
 --  })
 
-  -- Setup lualine
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    theme = 'tokyonight',
-    component_separators = { left = '', right = ''},
-    section_separators = { left = '', right = ''},
-    disabled_filetypes = {},
-    always_divide_middle = true,
-    globalstatus = false,
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff', 'diagnostics'},
-    lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
-    lualine_y = {'progress'},
-    lualine_z = {'location'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {}
-}
 
 
 -- Metals config
@@ -133,26 +105,26 @@ api.nvim_create_autocmd("FileType", {
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'gopls', 'clangd', 'tsserver' }
-local lsp_config = require('lspconfig')
-local configs = require('lspconfig/configs')
-
-for _, lsp in pairs(servers) do
-  lsp_config[lsp].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-  }
-end
-
-lsp_config.html.setup {
-  capabilities = capabilities,
-}
-
-lsp_config.cssls.setup {
-  capabilities = capabilities,
-}
-
-lsp_config.emmet_ls.setup({
-    capabilities = capabilities,
-    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
-})
+--local servers = { 'gopls', 'clangd', 'tsserver' }
+--local lsp_config = require('lspconfig')
+--local configs = require('lspconfig/configs')
+--
+--for _, lsp in pairs(servers) do
+--  lsp_config[lsp].setup {
+--    capabilities = capabilities,
+--    on_attach = on_attach,
+--  }
+--end
+--
+--lsp_config.html.setup {
+--  capabilities = capabilities,
+--}
+--
+--lsp_config.cssls.setup {
+--  capabilities = capabilities,
+--}
+--
+--lsp_config.emmet_ls.setup({
+--    capabilities = capabilities,
+--    filetypes = { 'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+--})

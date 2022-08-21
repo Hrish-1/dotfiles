@@ -35,10 +35,15 @@ require('packer').startup(function()
     run = ':TSUpdate'
   }
   -- Autopairs
-  use 'windwp/nvim-autopairs'
+  use {
+      'windwp/nvim-autopairs',
+      config = function() require("nvim-autopairs").setup {} end
+  }
   -- Telescope
-    use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
-      requires = { {'nvim-lua/plenary.nvim'} }
-    }
+  use {
+    'nvim-telescope/telescope.nvim', tag = '0.1.0',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+  -- Which-key
+  use { "folke/which-key.nvim" }
 end)

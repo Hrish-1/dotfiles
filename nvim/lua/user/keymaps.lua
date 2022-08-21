@@ -1,3 +1,4 @@
+vim.g.mapleader = " "
 local opts = { noremap=true, silent=true }
 
 function map(mode, lhs, rhs, opts)
@@ -15,13 +16,13 @@ map("n", "<space>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opt
 map("n", "<space>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 
 -- NvimTree
-map("n", "<space>t", ":NvimTreeToggle<CR>", opts)
+map("n", "<space>e", ":NvimTreeToggle<CR>", opts)
 map("n", "<space>r", ":NvimTreeRefresh<CR>", opts)
 -- map("n", "f", ":NvimTreeFocus<CR>", opts)
 
 -- Mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-map('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
+map('n', '[e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 map('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 map('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 map('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
