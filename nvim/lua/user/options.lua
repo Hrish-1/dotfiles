@@ -6,6 +6,7 @@ set.shiftwidth = 4
 set.softtabstop = 4
 set.expandtab = true
 set.relativenumber = true
+set.number = true
 
 -- Enable mouse 
 set.mouse = "a"

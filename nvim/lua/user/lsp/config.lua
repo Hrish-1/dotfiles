@@ -1,5 +1,6 @@
 local keymaps = require('user.lsp.keymaps')
 local cmp = require('cmp_nvim_lsp')
+require("nvim-lsp-installer").setup {}
 
 local opts = {
   on_attach = function(client, bufnr)
@@ -14,10 +15,10 @@ local opts = {
   },
 }
 
-local servers = { 'gopls', 'clangd', 'tsserver' }
+local servers = { 'gopls', 'clangd', 'tsserver', 'sumneko_lua' }
 local lsp_config = require('lspconfig')
 -- local configs = require('lspconfig/configs')
 
 for _, lsp in pairs(servers) do
-  lsp_config[lsp].setup(opts) 
+  lsp_config[lsp].setup(opts)
 end
