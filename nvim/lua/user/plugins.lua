@@ -17,10 +17,12 @@ require('packer').startup(function()
     -- Lualine
     use {
         'nvim-lualine/lualine.nvim',
-        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+        requires = { 'kyazdani42/nvim-web-devicons' }
     }
     -- Scala
     use({ 'scalameta/nvim-metals', requires = { "nvim-lua/plenary.nvim" } })
+    -- Java
+    use 'mfussenegger/nvim-jdtls'
     -- NvimTree
     use {
         'kyazdani42/nvim-tree.lua',

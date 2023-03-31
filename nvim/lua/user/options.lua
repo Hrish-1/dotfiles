@@ -15,7 +15,7 @@ set.mouse = "a"
 vim.cmd[[set termguicolors]]
 
 -- Theme
-vim.g.tokyonight_italic_keywords = false
-vim.g.tokyonight_italic_comments = false
-vim.g.tokyonight_style = "night"
-vim.cmd[[colorscheme tokyonight]]
+--vim.g.tokyonight_italic_keywords = false
+--vim.g.tokyonight_italic_comments = false
+--vim.g.tokyonight_style = "night"
+--vim.cmd[[colorscheme tokyonight]]

@@ -1,5 +1,16 @@
 vim.g.mapleader = " "
-local opts = { noremap=true, silent=true }
+local opts = { noremap = true, silent = true }
+
+vim.opt.clipboard = "unnamedplus"
+
+if vim.fn.has('wsl') == 1 then
+    vim.api.nvim_create_autocmd('TextYankPost', {
+        group = vim.api.nvim_create_augroup('Yank', { clear = true }),
+        callback = function()
+            vim.fn.system('clip.exe', vim.fn.getreg('"'))
+        end,
+    })
+end
 
 function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
